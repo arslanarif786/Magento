@@ -1,7 +1,6 @@
 /// this is basically the router files
 /// in this file we routes the file with one another and also provide the complete path of the specific files
-/// here I have also included the global routing guards 
-
+/// here I have also included the global routing guards
 
 import Vue from "vue";
 import VueRouter from "vue-router";
@@ -15,15 +14,18 @@ import electronics from "../components/electronics.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Profile from "../views/Profile.vue";
-import About from "../views/About.vue";
 import ContactUs from "../views/ContactUs.vue";
-import Checkout from "../components/Checkout.vue";
+import About from "../views/About.vue";
 
 Vue.use(VueRouter);
-
-
-const routes = [{
+const routes = [
+  {
     path: "/",
+    name: "Home",
+    component: Home,
+  },
+  {
+    path: "/signup",
     name: "Signup",
     component: Signup,
   },
@@ -33,16 +35,6 @@ const routes = [{
     component: Login,
   },
   {
-    path: "/profile",
-    name: "Profile",
-    component: Profile,
-  },
-  {
-    path: "/home",
-    name: "Home",
-    component: Home,
-  },
-  {
     path: "/about",
     name: "About",
     component: About,
@@ -50,7 +42,12 @@ const routes = [{
   {
     path: "/contactus",
     name: "ContactUs",
-    component: ContactUs,
+    component:ContactUs,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
   },
   {
     path: "/products",
@@ -58,15 +55,16 @@ const routes = [{
     component: Products,
   },
   {
-    path: "/product",
+    path: "/product/:id",
     component: product,
     name: "product",
-
+    props: true,
   },
   {
     path: "/jewelery",
     component: jewelery,
     name: "jewelery",
+    props: true,
   },
   {
     path: "/electronics",
@@ -83,12 +81,6 @@ const routes = [{
     component: womenclothing,
     name: "womenclothing",
   },
-  {
-    path: "/checkout",
-    component: Checkout,
-    name: "Checkout",
-  },
-  
 ];
 
 
@@ -100,21 +92,19 @@ const router = new VueRouter({
 
 
 
-////////////////////////////////////////////////    Method for >>>>>>>>>>>> ROUTER GUARD   (GLOBAL)
-router.beforeEach((to, from, next) => {
-  //  console.log("to", to.path);  
+//////////////////////   Method for >>>>>>>> ROUTER GUARD   (GLOBAL)
+router.beforeEach((to, from, next) => {  
 
   var isAuthenticated = false;
   if (localStorage.getItem('currentUser'))
     isAuthenticated = true;
   else
     isAuthenticated = false;
-  if (['/login', '/', ].includes(to.path) || isAuthenticated) {
+  if (['/login', '/signup', ].includes(to.path) || isAuthenticated) {
     next(); // allow to enter route
   } else {
     next('/login'); // go to '/login';
   }
 })
-
 
 export default router;

@@ -12,7 +12,7 @@
           <v-list-item-avatar> </v-list-item-avatar>
           <v-list-item-content>
             <v-list-item-title>
-              <h3><u> Categories </u></h3>
+              <h3><u> CATEGORIES </u></h3>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
@@ -23,10 +23,8 @@
           <img src="./assets/jewel.jpg" />
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <router-link to="/jewelery" class="black--text">
-            <v-list-item-title>jewelery</v-list-item-title>
-          </router-link>
+        <v-list-item-content @click="jewelery">
+          <v-list-item-title>Jewelery</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -35,10 +33,8 @@
           <img src="./assets/electronic.jpg" />
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <router-link to="/electronics" class="black--text">
-            <v-list-item-title>electronics</v-list-item-title>
-          </router-link>
+        <v-list-item-content @click="electronics">
+          <v-list-item-title>Electronics</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -47,10 +43,8 @@
           <img src="./assets/profile.jpg" />
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <router-link to="/menclothing" class="black--text">
-            <v-list-item-title>mens clothing</v-list-item-title>
-          </router-link>
+        <v-list-item-content @click="menclothing">
+          <v-list-item-title>Men's Clothing</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
       <v-list-item two-line link>
@@ -58,75 +52,119 @@
           <img cover src="./assets/girl.jpg" />
         </v-list-item-avatar>
 
-        <v-list-item-content>
-          <router-link to="/womenclothing" class="black--text">
-            <v-list-item-title>womenclothings</v-list-item-title>
-          </router-link>
+        <v-list-item-content @click="womenclothing">
+          <v-list-item-title>Women's Clothing</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-navigation-drawer>
 
     <!-- Drawer end here -->
 
+    <!-- side menue -->
+
+    <v-card
+      id="side-menue"
+      color="dark"
+      flex-column
+      style="z-index: 1; position: absolute"
+      class="my-12"
+      height="87vh"
+    >
+      <v-card
+        outlined
+        color="transparent"
+        width="100%"
+        height="55vh"
+        class="my-15"
+      >
+        <v-avatar dark class="d-block text-center mx-auto mb-9">
+          <v-btn
+            relative
+            color="grey darken-4"
+            class="white--text"
+            fab
+            small
+            right
+            @click="home"
+          >
+            <v-icon>mdi-home</v-icon>
+          </v-btn>
+        </v-avatar>
+
+        <v-avatar dark class="d-block text-center mx-auto mb-9"
+          ><v-btn
+            relative
+            color="grey darken-4"
+            class="white--text"
+            fab
+            small
+            right
+            @click="products"
+          >
+            <v-icon>mdi-widgets</v-icon>
+          </v-btn></v-avatar
+        >
+
+        <v-avatar dark class="d-block text-center mx-auto mb-9"
+          ><v-btn
+            relative
+            color="grey darken-4"
+            class="white--text"
+            fab
+            small
+            right
+            @click="about"
+          >
+            <v-icon> mdi-information </v-icon>
+          </v-btn>
+        </v-avatar>
+
+        <v-avatar dark class="d-block text-center mx-auto mb-9"
+          ><v-btn
+            relative
+            color="grey darken-4"
+            class="white--text"
+            fab
+            small
+            right
+            @click="contactus"
+          >
+            <v-icon> mdi-message-text</v-icon>
+          </v-btn></v-avatar
+        >
+      </v-card>
+    </v-card>
+
     <!--Nav starts from here -->
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title> Magento </v-toolbar-title>
+      <v-toolbar-title> <span class="orange--text"> M</span>agento </v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <!--1st-->
-
-      <router-link to="/home">
-        <v-btn class="ma-2" color="Black" light>
-          <v-icon dark left> mdi-home </v-icon>
-          Home
-        </v-btn>
-      </router-link>
-      <!--2nd-->
-
-      <router-link to="/products">
-        <v-btn class="ma-2" color="Black" light>
-          <v-icon dark left> mdi-widgets </v-icon>
-          Products
-        </v-btn>
-      </router-link>
-
-      <!-- 3rd -->
-      <router-link to="/about">
-        <v-btn class="ma-2" color="Black" light>
-          <v-icon dark left> mdi-information </v-icon>
-          About
-        </v-btn>
-      </router-link>
-
-      <!-- 4th -->
-      <router-link to="/contactus">
-        <v-btn class="ma-2" color="Black" light>
-          <v-icon dark left> mdi-message-text </v-icon>
-          Contact Us
-        </v-btn>
-      </router-link>
 
       <v-spacer></v-spacer>
 
-      <router-link to="/profile">
-        <v-menu left bottom>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn icon v-bind="attrs" v-on="on" class="mr-1">
-              <v-icon>mdi-account</v-icon>
-            </v-btn>
-          </template>
-        </v-menu>
-      </router-link>
+      <v-menu left bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            icon
+            v-bind="attrs"
+            v-on="on"
+            class="mr-1 transparent"
+            @click="profile"
+          >
+            <v-icon>mdi-account</v-icon>
+          </v-btn>
+        </template>
+      </v-menu>
 
       <v-btn color="light" dark class="mr-1">
         {{ cartItemCount }}
         <v-icon right> mdi-cart</v-icon>
       </v-btn>
 
-      <v-btn color="orange" class="white--text">
-        <router-link to="/login" class="white--text"> Logout </router-link>
+      <v-btn color="orange" class="white--text" @click="logout">
+        Logout
         <v-icon right>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>
@@ -178,6 +216,40 @@ export default {
   computed: {
     cartItemCount() {
       return this.$store.getters.cartItemCount;
+    },
+  },
+  methods: {
+    //////////////////////////////////////* Router links of specific pages */
+    profile() {
+      this.$router.push({ name: "Profile" });
+    },
+    logout() {
+      localStorage.removeItem("currentUser");
+      this.$router.push({ name: "Login" });
+    },
+    home() {
+      this.$router.push({ name: "Home" });
+    },
+    products() {
+      this.$router.push({ name: "products" });
+    },
+    about() {
+      this.$router.push({ name: "About" });
+    },
+    contactus() {
+      this.$router.push({ name: "ContactUs" });
+    },
+    jewelery() {
+      this.$router.push({ name: "jewelery" });
+    },
+    electronics() {
+      this.$router.push({ name: "electronics" });
+    },
+    menclothing() {
+      this.$router.push({ name: "menclothing" });
+    },
+    womenclothing() {
+      this.$router.push({ name: "womenclothing" });
     },
   },
 };

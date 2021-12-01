@@ -3,7 +3,7 @@
 /// this is the parent of the productCard component
 
 <template>
-  <v-card class="d-flex flex-row flex-wrap">
+  <v-card class="d-flex flex-row flex-wrap ml-11" width="95%">
     <ProductCard
       v-for="product in products"
       :key="product.id"
@@ -18,6 +18,7 @@
 <script>
 import ProductCard from "./ProductCard.vue";
 export default {
+  name: "ProductList",
   components: {
     ProductCard,
   },

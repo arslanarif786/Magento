@@ -39,7 +39,7 @@
         </v-btn>
         <v-row align="center" class="mx-0"> </v-row>
 
-        <div class="mb-8 text-subtitle-1">{{ product.price }}</div>
+        <div class="mb-10 mt-2 text-subtitle-1 orange--text">${{ product.price }}</div>
       </v-card-text>
 
       <v-divider class="mx-4"></v-divider>

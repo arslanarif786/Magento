@@ -5,7 +5,7 @@
 
 <template>
   <v-app>
-    <v-carousel hide-delimiters cycle>
+    <v-carousel :show-arrows="false" hide-delimiters cycle>
       <v-carousel-item
         cover
         v-for="(item, i) in items"
@@ -17,10 +17,10 @@
     <!-- sheet starts from here -->
 
     <v-sheet
-      class="mx-auto d-flex flex-row flex-wrap justify-space-around"
+      class="mx-auto d-flex flex-row flex-wrap justify-space-around ml-13"
       elevation="3"
-      height="500px"
-      width="100%"
+      height="auto"
+      width="93%"
     >
       <v-card :loading="loading" class="my-12" max-width="300">
         <template slot="progress">

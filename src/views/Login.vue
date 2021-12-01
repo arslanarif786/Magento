@@ -4,7 +4,9 @@
 // otherwise user cant go on home page and have to be entered correct details
 
 <template>
+<v-card class="d-flex flex-row flex-wrap ml-13" height="86vh" width="95%">
   <v-container>
+    
     <v-row class="text-center">
       <v-col cols="6" class="mx-auto">
         <h1>Login</h1>
@@ -24,16 +26,17 @@
           ></v-text-field>
 
           <v-btn depressed  color="orange" @click.prevent="logIn">
-            <router-link to="/home" class="white--text"> Login </router-link>
+             Login 
           </v-btn>
 
-          <br />
+          <br>
 
-          <router-link to="/"> <div>Create a New Account</div> </router-link>
+          <router-link to="/signup"> <div>Create a New Account</div> </router-link>
         </v-form>
       </v-col>
     </v-row>
   </v-container>
+  </v-card>
 </template>
 
 <script>
@@ -61,6 +64,7 @@ export default {
       if (this.currentUser) {
         console.log("login success");
         localStorage.setItem("currentUser", JSON.stringify(this.currentUser));
+        this.$router.push({ name: "Home" });
       } else {
         console.log("login failed");
       }

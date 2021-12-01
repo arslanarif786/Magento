@@ -3,7 +3,7 @@
 
 <template>
   <v-app>
-    <div class="d-flex flex-row flex-wrap">
+    <v-card class="d-flex flex-row flex-wrap ml-13" width="95%">
       <v-card
         id="my-card"
         class="mx-auto my-12"
@@ -47,7 +47,7 @@
           </v-btn>
           <v-row align="center" class="mx-0"> </v-row>
 
-          <div class="mb-8 text-subtitle-1">{{ womenclothing.price }}</div>
+          <div class="mb-10 mt-2 text-subtitle-1 orange--text">${{ womenclothing.price }}</div>
         </v-card-text>
 
         <v-divider class="mx-4"></v-divider>
@@ -63,7 +63,7 @@
           </v-btn>
         </div>
       </v-card>
-    </div>
+    </v-card>
   </v-app>
 </template>
 

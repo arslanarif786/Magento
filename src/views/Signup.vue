@@ -5,6 +5,7 @@
 
 
 <template>
+<v-card class="d-flex flex-row flex-wrap ml-13" height="86vh" width="95%">
   <v-container>
     <v-row class="text-center">
       <v-col cols="6" class="mx-auto">
@@ -66,17 +67,18 @@
           ></v-text-field>
 
           <v-btn
-          block
+            block
             depressed
             color="orange"
             @click.prevent="validateAndStoreInLocal"
           >
-            <router-link to="/login" class="white--text"> Sign up </router-link>
+            Sign up
           </v-btn>
         </v-form>
       </v-col>
     </v-row>
   </v-container>
+</v-card>
 </template>
 
 <script>
@@ -141,6 +143,7 @@ export default {
           this.newUser.push(user);
           localStorage.setItem("users", JSON.stringify(this.newUser));
           console.log("Your account has been successfully created");
+          this.$router.push({ name: "Login" });
         }
       }
       /////////////////////* to enter the new inputs */
