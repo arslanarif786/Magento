@@ -1,4 +1,4 @@
-# e-commerce
+# Magento
 
 ## Project setup
 ```
